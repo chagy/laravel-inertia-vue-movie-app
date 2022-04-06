@@ -52,6 +52,12 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+                                <JetNavLink 
+                                    v-if="$page.props.is_admin"
+                                    :href="route('dashboard')" 
+                                    :active="route().current('dashboard')">
+                                    Admin
+                                </JetNavLink>
                             </div>
                         </div>
 
@@ -210,6 +216,12 @@ const logout = () => {
                     <div class="pt-2 pb-3 space-y-1">
                         <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
+                        </JetResponsiveNavLink>
+                        <JetResponsiveNavLink 
+                            v-if="$page.props.is_admin"
+                            :href="route('dashboard')" 
+                            :active="route().current('dashboard')">
+                            Admin
                         </JetResponsiveNavLink>
                     </div>
 
