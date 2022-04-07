@@ -80,7 +80,7 @@
 
                             </table>
                             <div class="m-2 p-2">
-                                links
+                                <Pagination :links="tags.links" />
                             </div>
                         </div>
                     </div>
@@ -94,6 +94,7 @@
 <script setup>
     import AdminLayout from '../../Layouts/AdminLayout.vue'
     import { Link } from '@inertiajs/inertia-vue3'
+    import Pagination from '../../Components/Pagination.vue'
 
     const props = defineProps({
         tags: Object,
