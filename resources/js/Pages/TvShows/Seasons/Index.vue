@@ -11,15 +11,15 @@
                         <form class="flex space-x-4 shadow bg-white rounded-md m-2 p-2">
                             <div class="p-1 flex items-center">
                                 <label for="tmdb_id_g" class="block text-sm font-medium text-gray-700 mr-4">
-                                    Season Id
+                                    Season Number
                                 </label>
                                 <div class="relative rounded-md shadow-sm">
                                     <input 
-                                        v-model="seasonTMDBId" 
+                                        v-model="seasonNumber" 
                                         id="tmdb_id_g" 
                                         name="tmdb_id_g"
                                         class="px-3 py-2 border border-gray-300 rounded" 
-                                        placeholder="TV ID" />
+                                        placeholder="Season Number" />
                                 </div>
                             </div>
                             <div class="p-1">
@@ -86,17 +86,6 @@
                                                 :link="route('admin.episodes.index', [tvShow.id,season.id])">
                                                 Seasons
                                             </ButtonLink>
-                                            <ButtonLink :link="route('admin.seasons.edit', season.id)">
-                                                Edit
-                                            </ButtonLink>
-                                            <ButtonLink 
-                                                class="bg-red-500 hover:bg-red-700" 
-                                                method="delete" 
-                                                as="button" 
-                                                type="button"
-                                                :link="route('admin.seasons.destroy', season.id)">
-                                                Delete
-                                            </ButtonLink>
                                         </div>
                                     </TableData>
                                 </TableRow>
@@ -134,7 +123,7 @@
 
     const search = ref(props.filters.search);
     const perPage = ref(props.filters.perPage);
-    const seasonTMDBId = ref('');
+    const seasonNumber = ref('');
 
     watch(search,value => {
         Inertia.get('/admin/tv-shows/'+props.tvShow.id+'/seasons', { search: value,perPage: perPage.value },{
@@ -152,8 +141,8 @@
 
     function generateSeason()
     {
-        Inertia.post('/admin/tv-shows/'+props.tvShow.id+'/seasons',{ seasonTMDBId: seasonTMDBId.value },{
-            onFinish: () => ( seasonTMDBId.value = ""),
+        Inertia.post('/admin/tv-shows/'+props.tvShow.id+'/seasons',{ seasonNumber: seasonNumber.value },{
+            onFinish: () => ( seasonNumber.value = ""),
         })
     }
 </script>

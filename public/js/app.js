@@ -22767,7 +22767,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
     var search = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(props.filters.search);
     var perPage = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(props.filters.perPage);
-    var seasonTMDBId = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)('');
+    var seasonNumber = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)('');
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(search, function (value) {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.get('/admin/tv-shows/' + props.tvShow.id + '/seasons', {
         search: value,
@@ -22790,10 +22790,10 @@ __webpack_require__.r(__webpack_exports__);
 
     function generateSeason() {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/admin/tv-shows/' + props.tvShow.id + '/seasons', {
-        seasonTMDBId: seasonTMDBId.value
+        seasonNumber: seasonNumber.value
       }, {
         onFinish: function onFinish() {
-          return seasonTMDBId.value = "";
+          return seasonNumber.value = "";
         }
       });
     }
@@ -22802,7 +22802,7 @@ __webpack_require__.r(__webpack_exports__);
       props: props,
       search: search,
       perPage: perPage,
-      seasonTMDBId: seasonTMDBId,
+      seasonNumber: seasonNumber,
       getSeasons: getSeasons,
       generateSeason: generateSeason,
       AdminLayout: _Layouts_AdminLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -29530,7 +29530,7 @@ var _hoisted_7 = {
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "tmdb_id_g",
   "class": "block text-sm font-medium text-gray-700 mr-4"
-}, " Season Id ", -1
+}, " Season Number ", -1
 /* HOISTED */
 );
 
@@ -29615,11 +29615,7 @@ var _hoisted_29 = {
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Seasons ");
 
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Edit ");
-
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Delete ");
-
-var _hoisted_33 = {
+var _hoisted_31 = {
   key: 0,
   "class": "m-2 p-2"
 };
@@ -29633,15 +29629,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return $setup.seasonTMDBId = $event;
+          return $setup.seasonNumber = $event;
         }),
         id: "tmdb_id_g",
         name: "tmdb_id_g",
         "class": "px-3 py-2 border border-gray-300 rounded",
-        placeholder: "TV ID"
+        placeholder: "Season Number"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.seasonTMDBId]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.seasonNumber]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": "p-1"
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         type: "button",
@@ -29767,32 +29763,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
                     }, 1032
                     /* PROPS, DYNAMIC_SLOTS */
-                    , ["link"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ButtonLink"], {
-                      link: _ctx.route('admin.seasons.edit', season.id)
-                    }, {
-                      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                        return [_hoisted_31];
-                      }),
-                      _: 2
-                      /* DYNAMIC */
-
-                    }, 1032
-                    /* PROPS, DYNAMIC_SLOTS */
-                    , ["link"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ButtonLink"], {
-                      "class": "bg-red-500 hover:bg-red-700",
-                      method: "delete",
-                      as: "button",
-                      type: "button",
-                      link: _ctx.route('admin.seasons.destroy', season.id)
-                    }, {
-                      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                        return [_hoisted_32];
-                      }),
-                      _: 2
-                      /* DYNAMIC */
-
-                    }, 1032
-                    /* PROPS, DYNAMIC_SLOTS */
                     , ["link"])])];
                   }),
                   _: 2
@@ -29815,7 +29785,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      }), $props.seasons.data.lenght ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
+      }), $props.seasons.data.lenght ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
         links: $props.seasons.links
       }, null, 8
       /* PROPS */
