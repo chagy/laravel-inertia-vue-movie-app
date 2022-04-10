@@ -69,7 +69,10 @@
                                             </ButtonLink>
                                             <ButtonLink 
                                                 class="bg-red-500 hover:bg-red-700"
-                                                :link="route('admin.genres.destroy', genre.id)">
+                                                :link="route('admin.genres.destroy', genre.id)" 
+                                                method="delete" 
+                                                as="button" 
+                                                type="button">
                                                 Delete
                                             </ButtonLink>
                                         </div>
@@ -108,6 +111,7 @@
 
     const search = ref(props.filters.search);
     const perPage = ref(props.filters.perPage);
+    const showSpinner = ref(false)
 
     watch(search,value => {
         Inertia.get('/admin/genres', { search: value,perPage: perPage.value },{
@@ -125,7 +129,10 @@
 
     function generateGenres()
     {
-        Inertia.post('/admin/genres')
+        Inertia.post('/admin/genres',{},{
+            onStart: () => showSpinner.value = true,
+            onFinish: () => showSpinner.value = false,
+        })
     }
 </script>
 
