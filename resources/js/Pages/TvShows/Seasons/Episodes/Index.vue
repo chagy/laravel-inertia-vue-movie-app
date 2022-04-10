@@ -78,7 +78,17 @@
                                     <TableData>{{ episode.name }}</TableData>
                                     <TableData>{{ episode.slug }}</TableData>
                                     <TableData>{{ episode.episode_number }}</TableData>
-                                    <TableData>{{ episode.is_public }}</TableData>
+                                    <TableData>
+                                        <span 
+                                            v-if="episode.is_public"
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Published
+                                        </span>
+                                        <span v-else
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                            UnPublished
+                                        </span>
+                                    </TableData>
                                     <TableData>
                                         <div class="flex justify-around">
 
