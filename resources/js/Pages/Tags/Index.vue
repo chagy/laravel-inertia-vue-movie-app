@@ -32,7 +32,7 @@
                                         </div>
 
                                         <input 
-                                            wire:model="search" 
+                                            v-model="search" 
                                             type="text" 
                                             placeholder="Search by title"
                                             class="px-8 py-3 w-full md:w-2/6 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" />
@@ -40,7 +40,8 @@
                                 </div>
                                 <div class="flex">
                                     <select 
-                                        wire:model="perPage"
+                                        v-model="perPage" 
+                                        @change="getTags"
                                         class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                                         <option value="5">5 Per Page</option>
                                         <option value="10">10 Per Page</option>
@@ -95,10 +96,30 @@
     import AdminLayout from '../../Layouts/AdminLayout.vue'
     import { Link } from '@inertiajs/inertia-vue3'
     import Pagination from '../../Components/Pagination.vue'
+    import { ref,watch,defineProps } from 'vue';
+    import { Inertia } from '@inertiajs/inertia';
 
     const props = defineProps({
         tags: Object,
+        filters: Object,
     });
+
+    const search = ref(props.filters.search);
+    const perPage = ref(5);
+
+    watch(search,value => {
+        Inertia.get('/admin/tags', { search: value,perPage: perPage.value },{
+            preserveState: true,
+            replace: true
+        });
+    })
+
+    function getTags(){
+        Inertia.get('/admin/tags', { perPage: perPage.value,search: search.value },{
+            preserveState: true,
+            replace: true
+        });
+    }
 </script>
 
 <style>
