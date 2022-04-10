@@ -1,7 +1,7 @@
 <template>
     <AdminLayout title="Dashboard">
         <template #header>
-            Tv Show
+            Seasons Index
         </template>
 
         <div class="py-12">
@@ -11,11 +11,11 @@
                         <form class="flex space-x-4 shadow bg-white rounded-md m-2 p-2">
                             <div class="p-1 flex items-center">
                                 <label for="tmdb_id_g" class="block text-sm font-medium text-gray-700 mr-4">
-                                    TV Tmdb Id
+                                    Season Id
                                 </label>
                                 <div class="relative rounded-md shadow-sm">
                                     <input 
-                                        v-model="tvShowTMDBId" 
+                                        v-model="seasonTMDBId" 
                                         id="tmdb_id_g" 
                                         name="tmdb_id_g"
                                         class="px-3 py-2 border border-gray-300 rounded" 
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="p-1">
-                                <button type="button" @click="generateTvShow"
+                                <button type="button" @click="generateSeason"
                                     class="inline-flex items-center justify-center py-2 px-4 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-green-700 transition duration-150 ease-in-out disabled:opacity-50">
                                     <span>Generate</span>
                                 </button>
@@ -55,7 +55,7 @@
                                 <div class="flex">
                                     <select 
                                         v-model="perPage" 
-                                        @change="getTvShows"
+                                        @change="getSeasons"
                                         class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                                         <option value="5">5 Per Page</option>
                                         <option value="10">10 Per Page</option>
@@ -70,21 +70,23 @@
                                 <template #tableHead>
                                     <TableHead>Name</TableHead>
                                     <TableHead>Slug</TableHead>
+                                    <TableHead>Season Nr</TableHead>
                                     <TableHead>Poster</TableHead>
                                     <TableHead>Manage</TableHead>
                                 </template>
-                                <TableRow v-for="tvShow in tvShows.data" :key="tvShow.id">
-                                    <TableData>{{ tvShow.name }}</TableData>
-                                    <TableData>{{ tvShow.slug }}</TableData>
-                                    <TableData>{{ tvShow.poster_path }}</TableData>
+                                <TableRow v-for="season in seasons.data" :key="season.id">
+                                    <TableData>{{ season.name }}</TableData>
+                                    <TableData>{{ season.slug }}</TableData>
+                                    <TableData>{{ season.season_number }}</TableData>
+                                    <TableData>{{ season.poster_path }}</TableData>
                                     <TableData>
                                         <div class="flex justify-around">
                                             <ButtonLink 
                                                 class="bg-blug-500 hover:bg-blue-700"
-                                                :link="route('admin.seasons.index', tvShow.id)">
+                                                :link="route('admin.episodes.index', [tvShow.id,season.id])">
                                                 Seasons
                                             </ButtonLink>
-                                            <ButtonLink :link="route('admin.tv-shows.edit', tvShow.id)">
+                                            <ButtonLink :link="route('admin.seasons.edit', season.id)">
                                                 Edit
                                             </ButtonLink>
                                             <ButtonLink 
@@ -92,15 +94,15 @@
                                                 method="delete" 
                                                 as="button" 
                                                 type="button"
-                                                :link="route('admin.tv-shows.destroy', tvShow.id)">
+                                                :link="route('admin.seasons.destroy', season.id)">
                                                 Delete
                                             </ButtonLink>
                                         </div>
                                     </TableData>
                                 </TableRow>
                             </Table>
-                            <div class="m-2 p-2" v-if="tvShows.data.lenght">
-                                <Pagination :links="tvShows.links" />
+                            <div class="m-2 p-2" v-if="seasons.data.lenght">
+                                <Pagination :links="seasons.links" />
                             </div>
                         </div>
                     </div>
@@ -112,9 +114,9 @@
 </template>
 
 <script setup>
-    import AdminLayout from '../../Layouts/AdminLayout.vue'
+    import AdminLayout from '../../../Layouts/AdminLayout.vue'
     import { Link } from '@inertiajs/inertia-vue3'
-    import Pagination from '../../Components/Pagination.vue'
+    import Pagination from '../../../Components/Pagination.vue'
     import { ref,watch,defineProps } from 'vue';
     import { Inertia } from '@inertiajs/inertia';
 
@@ -125,32 +127,33 @@
     import ButtonLink from "@/Components/ButtonLink";
 
     const props = defineProps({
-        tvShows: Object,
+        tvShow: Object,
+        seasons: Object,
         filters: Object,
     });
 
     const search = ref(props.filters.search);
     const perPage = ref(props.filters.perPage);
-    const tvShowTMDBId = ref('');
+    const seasonTMDBId = ref('');
 
     watch(search,value => {
-        Inertia.get('/admin/tv-shows', { search: value,perPage: perPage.value },{
+        Inertia.get('/admin/tv-shows/'+props.tvShow.id+'/seasons', { search: value,perPage: perPage.value },{
             preserveState: true,
             replace: true
         });
     })
 
-    function getTvShows(){
-        Inertia.get('/admin/tv-shows', { perPage: perPage.value,search: search.value },{
+    function getSeasons(){
+        Inertia.get('/admin/tv-shows/'+props.tvShow.id+'/seasons', { perPage: perPage.value,search: search.value },{
             preserveState: true,
             replace: true
         });
     }
 
-    function generateTvShow()
+    function generateSeason()
     {
-        Inertia.post('/admin/tv-shows',{ tvShowTMDBId: tvShowTMDBId.value },{
-            onFinish: () => ( tvShowTMDBId.value = ""),
+        Inertia.post('/admin/tv-shows/'+props.tvShow.id+'/seasons',{ seasonTMDBId: seasonTMDBId.value },{
+            onFinish: () => ( seasonTMDBId.value = ""),
         })
     }
 </script>
