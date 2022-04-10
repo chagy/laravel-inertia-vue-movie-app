@@ -133,7 +133,7 @@
     });
 
     const search = ref(props.filters.search);
-    const perPage = ref(5);
+    const perPage = ref(props.filters.perPage);
     const castTMDBId = ref('');
 
     watch(search,value => {
@@ -152,7 +152,9 @@
 
     function generateCast()
     {
-        Inertia.post('/admin/casts',{ castTMDBId: castTMDBId.value })
+        Inertia.post('/admin/casts',{ castTMDBId: castTMDBId.value },{
+            onFinish: () => ( castTMDBId.value = ""),
+        })
     }
 </script>
 
