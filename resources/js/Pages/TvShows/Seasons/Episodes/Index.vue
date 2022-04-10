@@ -126,7 +126,7 @@
 
     const props = defineProps({
         tvShow: Object,
-        seasons: Object,
+        season: Object,
         filters: Object,
         episodes: Object
     });
@@ -149,7 +149,7 @@
         });
     }
 
-    function generateSeason()
+    function generateEpisode()
     {
         Inertia.post('/admin/tv-shows/'+props.tvShow.id+'/seasons/'+props.season.id+'/episodes',{ episodeNumber: episodeNumber.value },{
             onFinish: () => ( episodeNumber.value = ""),
