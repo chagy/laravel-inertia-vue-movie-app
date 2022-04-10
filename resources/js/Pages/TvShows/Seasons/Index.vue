@@ -82,9 +82,23 @@
                                     <TableData>
                                         <div class="flex justify-around">
                                             <ButtonLink 
-                                                class="bg-blug-500 hover:bg-blue-700"
+                                                class="bg-blue-500 hover:bg-blue-700"
                                                 :link="route('admin.episodes.index', [tvShow.id,season.id])">
                                                 Seasons
+                                            </ButtonLink>
+
+                                            <ButtonLink 
+                                                :link="route('admin.seasons.edit', [tvShow.id,season.id])">
+                                                Edit
+                                            </ButtonLink>
+
+                                            <ButtonLink 
+                                                class="bg-red-500 hover:bg-red-700" 
+                                                method="delete" 
+                                                as="button" 
+                                                type="button"
+                                                :link="route('admin.seasons.destroy', [tvShow.id,season.id])">
+                                                Delete
                                             </ButtonLink>
                                         </div>
                                     </TableData>
