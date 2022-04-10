@@ -57,7 +57,7 @@
                                 <div class="flex">
                                     <select 
                                         v-model="perPage" 
-                                        @change="getCasts"
+                                        @change="getTvShows"
                                         class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                                         <option value="5">5 Per Page</option>
                                         <option value="10">10 Per Page</option>
@@ -85,7 +85,10 @@
                                                 Edit
                                             </ButtonLink>
                                             <ButtonLink 
-                                                class="bg-red-500 hover:bg-red-700"
+                                                class="bg-red-500 hover:bg-red-700" 
+                                                method="delete" 
+                                                as="button" 
+                                                type="button"
                                                 :link="route('admin.tv-shows.destroy', tvShow.id)">
                                                 Delete
                                             </ButtonLink>

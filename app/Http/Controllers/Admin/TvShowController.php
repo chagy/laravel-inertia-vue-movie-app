@@ -47,11 +47,38 @@ class TvShowController extends Controller
                 'created_year' => $tmdb_tv['first_air_date'],
             ]);
             return Redirect::back()
-                        ->with('flash.banner','Cast created.');
+                        ->with('flash.banner','Tv Show created.');
         } else {
             return Redirect::back()
                         ->with('flash.banner','Api Error')
                         ->with('flash.bannerStyle','danger');
         }
+    }
+
+    public function edit(TvShow $tvShow)
+    {
+        return Inertia::render('TvShows/Edit',['tvShow' => $tvShow]);
+    }
+
+    public function update(TvShow $tvShow)
+    {
+        $validated = Request::validate([
+            'name' => 'required',
+            'poster_path' => 'required'
+        ]);
+
+        $tvShow->update($validated);
+
+        return Redirect::route('admin.tv-shows.index')
+                ->with('flash.banner','Tv Show updated.');
+    }
+
+    public function destroy(TvShow $tvShow)
+    {
+        $tvShow->delete();
+
+        return Redirect::back()
+                        ->with('flash.banner','Tv Show deleted.')
+                        ->with('flash.bannerStyle','danger');
     }
 }
