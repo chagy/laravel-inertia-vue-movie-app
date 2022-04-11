@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
+use App\Models\Cast;
 use Inertia\Inertia;
 use App\Models\Movie;
 use App\Models\TrailerUrl;
@@ -16,7 +18,11 @@ class MovieAttachController extends Controller
     {
         return Inertia::render('Movies/Attach',[
             'movie' => $movie,
-            'trailers' => $movie->trailers
+            'trailers' => $movie->trailers,
+            'casts' => Cast::all('id','name'),
+            'tags' => Tag::all('id','tag_name'),
+            'movieCasts' => $movie->casts,
+            'movieTags' => $movie->tags,
         ]);
     }
 
@@ -34,5 +40,21 @@ class MovieAttachController extends Controller
     {
         $trailerUrl->delete();
         return Redirect::back()->with('flash.banner','Trailer destroy.');
+    }
+
+    public function addCast(Movie $movie)
+    {
+        $casts = Request::input('casts');
+        $cast_ids = collect($casts)->pluck('id');
+        $movie->casts()->sync($cast_ids);
+        return Redirect::back()->with('flash.banner','Casts attached.');
+    }
+
+    public function addTag(Movie $movie)
+    {
+        $tags = Request::input('tags');
+        $tag_ids = collect($tags)->pluck('id');
+        $movie->tags()->sync($tag_ids);
+        return Redirect::back()->with('flash.banner','Tags attached.');
     }
 }

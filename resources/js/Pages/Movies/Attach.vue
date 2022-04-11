@@ -70,20 +70,60 @@
                   :class="{ 'opacity-25': form.processing }"
                   :disabled="form.processing"
                 >
-                  Update
+                  Add Trailer
                 </JetButton>
               </div>
             </form>
           </div>
           <div
-            class="w-full mb-8 sm:max-w-md p-6 overflow-hidden bg-white rounded-lg shadow-lg"
+            class="w-full mb-8 sm:max-w-md p-6 bg-white rounded-lg shadow-lg"
           >
-            Trailer Form
+            <div>
+                <div class="flex">
+                    <div class="m-2 p-1 text-xs" v-for="mc in movieCasts" :key="mc.id">{{ mc.tag_name }}</div>
+                </div>
+                <form @submit.prevent="addCast">
+                    <Multiselect 
+                        v-model="castForm.casts" 
+                        :options="casts" 
+                        :multiple="true" 
+                        :close-on-select="false"
+                        :clear-on-select="false"
+                        :preserve-search="true"
+                        placeholder="Add Cast"
+                        label="name"
+                        track-by="name"
+                        :preselect-first="true"></Multiselect>
+                    <div class="mt-2">
+                        <JetButton>add cast</JetButton>
+                    </div>
+                </form>
+            </div>
           </div>
           <div
-            class="w-full mb-8 sm:max-w-md p-6 overflow-hidden bg-white rounded-lg shadow-lg"
+            class="w-full mb-8 sm:max-w-md p-6 bg-white rounded-lg shadow-lg"
           >
-            Trailer Form
+            <div>
+                <div class="flex">
+                    <div class="m-2 p-1 text-xs" v-for="mt in movieTags" :key="mt.id">{{ mt.name }}</div>
+                </div>
+                <form @submit.prevent="addTag">
+                    <Multiselect 
+                        v-model="tagForm.tags" 
+                        :options="tags" 
+                        :multiple="true" 
+                        :close-on-select="false"
+                        :clear-on-select="false"
+                        :preserve-search="true"
+                        placeholder="Add Tag"
+                        label="tag_name"
+                        track-by="tag_name"
+                        :preselect-first="true"></Multiselect>
+                    <div class="mt-2">
+                        <JetButton>add tag</JetButton>
+                    </div>
+                </form>
+            </div>
           </div>
         </section>
       </div>
@@ -101,15 +141,30 @@ import JetButton from "@/Jetstream/Button.vue";
 import JetInput from "@/Jetstream/Input.vue";
 import JetCheckbox from "@/Jetstream/Checkbox.vue";
 import JetLabel from "@/Jetstream/Label.vue";
+import Multiselect from 'vue-multiselect';
 
 const props = defineProps({
   movie: Object,
-  trailers: Array
+  trailers: Array,
+  casts: Array,
+  tags: Array,
+  movieTags: Array,
+  movieCasts: Array,
 });
 
+const value = ref('');
+const options = ['list','of','options'];
 const form = useForm({
     name: '',
     embed_html: ''
+})
+
+const castForm = useForm({
+    casts: props.movieCasts
+})
+
+const tagForm = useForm({
+    tags: props.movieTags
 })
 
 function submitTrailer(){
@@ -117,7 +172,23 @@ function submitTrailer(){
         onSuccess: () => form.reset()
     })
 }
-</script>
 
+function addCast(){
+    castForm.post(`/admin/movies/${props.movie.id}/add-casts`,{
+        preserveState: true,
+        preserveScroll: true,
+        onSuccess: () => castForm.reset()
+    })
+}
+
+function addTag(){
+    tagForm.post(`/admin/movies/${props.movie.id}/add-tags`,{
+        preserveState: true,
+        preserveScroll: true,
+        onSuccess: () => tagForm.reset()
+    })
+}
+</script>
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
 <style>
 </style>
