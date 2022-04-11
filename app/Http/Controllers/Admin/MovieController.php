@@ -63,4 +63,38 @@ class MovieController extends Controller
         }
     }
 
+    public function edit(Movie $movie)
+    {
+        return Inertia::render('Movies/Edit',['movie' => $movie]);
+    }
+
+    public function update(Movie $movie)
+    {
+        $validated = Request::validate([
+            'title' => 'required',
+            'poster_path' => 'required',
+            'runtime' => 'required',
+            'lang' => 'required',
+            'video_format' => 'required',
+            'rating' => 'required',
+            'backdrop_path' => 'required',
+            'overview' => 'required',
+            'is_public' => 'required'
+        ]);
+
+        $movie->update($validated);
+
+        return Redirect::route('admin.movies.index')->with('flash.banner','Movie Updated.');
+    }
+
+    public function destroy(Movie $movie)
+    {
+        $movie->genres()->sync([]);
+        $movie->delete();
+
+        return Redirect::route('admin.movies.index')
+                    ->with('flash.banner','Movie Deleted.')
+                    ->with('flash.bannerStyle','danger');
+    }
+
 }
