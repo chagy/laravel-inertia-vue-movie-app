@@ -26,7 +26,54 @@
           <div
             class="w-full mb-8 sm:max-w-md p-6 overflow-hidden bg-white rounded-lg shadow-lg"
           >
-            Trailer Form
+            <div class="flex space-x-2">
+                <div v-for="trailer in trailers" :key="trailer.id">
+                    <Link 
+                        class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded"
+                        :href="route('admin.trailer_urls.destroy',trailer.id)" 
+                        method="delete" 
+                        as="button" 
+                        type="button">
+                    {{ trailer.name }}
+                    </Link>
+                </div>
+            </div>
+            
+            <form @submit.prevent="submitTrailer">
+              <div>
+                <JetLabel for="name" value="Name" />
+                <JetInput
+                  id="name"
+                  v-model="form.name"
+                  type="text"
+                  class="mt-1 block w-full"
+                  autofocus
+                  autocomplete="name"
+                />
+                <div class="text-sm text-red-400" v-if="form.errors.name">{{ form.errors.name }}</div>
+              </div>
+
+              <div class="mt-4">
+                <JetLabel for="embed_html" value="Embed" />
+                <textarea
+                  id="embed_html"
+                  v-model="form.embed_html"
+                  class="mt-1 block w-full"
+                />
+                <div class="text-sm text-red-400" v-if="form.errors.embed_html">{{ form.errors.embed_html }}</div>
+              </div>
+
+              <div class="flex items-center justify-end mt-4">
+
+                <JetButton
+                  class="ml-4"
+                  :class="{ 'opacity-25': form.processing }"
+                  :disabled="form.processing"
+                >
+                  Update
+                </JetButton>
+              </div>
+            </form>
           </div>
           <div
             class="w-full mb-8 sm:max-w-md p-6 overflow-hidden bg-white rounded-lg shadow-lg"
@@ -57,23 +104,18 @@ import JetLabel from "@/Jetstream/Label.vue";
 
 const props = defineProps({
   movie: Object,
+  trailers: Array
 });
 
 const form = useForm({
-    title: props.movie.title,
-    poster_path: props.movie.poster_path,
-    video_format: props.movie.video_format,
-    runtime: props.movie.runtime,
-    rating: props.movie.rating,
-    backdrop_path: props.movie.backdrop_path,
-    lang: props.movie.lang,
-    overview: props.movie.overview,
-    is_public: props.movie.is_public ? true : false,
-
+    name: '',
+    embed_html: ''
 })
 
-function submitMovie(){
-    form.put(`/admin/movies/${props.movie.id}`)
+function submitTrailer(){
+    form.post(`/admin/movies/${props.movie.id}/add-trailer`,{
+        onSuccess: () => form.reset()
+    })
 }
 </script>
 
