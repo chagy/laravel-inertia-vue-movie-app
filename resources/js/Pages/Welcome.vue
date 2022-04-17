@@ -49,7 +49,7 @@ defineProps({
                                 <div
                                     class="absolute flex flex-wrap z-10 bottom-2 left-2 text-indigo-300 text-sm font-bold group-hover:text-blue-700"
                                     >
-                                    <span v-for="genre in movie.genres" :key="genre.id">
+                                    <span class="mr-1" v-for="genre in movie.genres" :key="genre.id">
                                         {{ genre.title }}
                                     </span>
                                 </div>

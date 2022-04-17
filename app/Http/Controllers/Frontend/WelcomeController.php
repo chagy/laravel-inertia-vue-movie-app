@@ -14,7 +14,7 @@ class WelcomeController extends Controller
     public function index()
     {
         return Inertia::render('Welcome',[
-            'movies' => Movie::query()->with('genres')->get(),
+            'movies' => Movie::orderBy('updated_at','desc')->with('genres')->take(12)->get(),
             'tvShows' => TvShow::withCount('seasons')->orderBy('created_at','desc')->take(12)->get(),
             'episodes' => Episode::orderBy('created_at','desc')->with('season')->take(12)->get()
         ]);
