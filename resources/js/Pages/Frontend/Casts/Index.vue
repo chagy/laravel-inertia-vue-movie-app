@@ -5,28 +5,28 @@ import MovieCard from "@/Components/MovieCard";
 import Pagination from "@/Components/Pagination";
 
 defineProps({
-    tvShows: Array,
+    casts: Array,
 })
 
 </script>
 
 <template>
-    <Head title="All Tv Shows" />
+    <Head title="All Casts" />
 
     <FrontLayout>
         <main class="max-w-6xl mx-auto mt-6 min-h-screen">
             
             <section class="bg-gray-200 dark:bg-gray-900 dark:text-white mt-4 p-2 rounded">
                 <div class="m-2 p-2 text-2xl font-bold text-indigo-600 dark:text-indigo-300">
-                    <h1>Tv Shows</h1>
+                    <h1>Casts</h1>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded">
-                    <MovieCard v-for="tvShow in tvShows.data" :key="tvShow.id">
+                    <MovieCard v-for="cast in casts.data" :key="cast.id">
                         <template #image>
-                            <Link :href="`/tv-shows/${tvShow.slug}`">
+                            <Link :href="`/casts/${cast.slug}`">
                                 <div class="aspect-w-2 aspect-h-3">
                                     <img class="object-cover"
-                                        :src="`https://www.themoviedb.org/t/p/w220_and_h330_face/${tvShow.poster_path}`">
+                                        :src="`https://www.themoviedb.org/t/p/w220_and_h330_face/${cast.poster_path}`">
                                 </div>
                                 <div
                                     class="absolute x-10 left-2 top-2 h-6 w-12 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center rounded">
@@ -48,15 +48,15 @@ defineProps({
                                 </div>
                             </Link>
                         </template>
-                        <Link :href="`/tv-shows/${tvShow.slug}`">
+                        <Link :href="`/casts/${cast.slug}`">
                             <div class="dark:text-white font-bold group-hover:text-blue-400">
-                                {{ tvShow.name }}
+                                {{ cast.name }}
                             </div>
                         </Link>
                     </MovieCard>
                 </div>
                 <div class="m-2 p-2 bg-gray-500">
-                    <Pagination :links="tvShows.links" />
+                    <Pagination :links="casts.links" />
                 </div>
             </section>
         </main>
