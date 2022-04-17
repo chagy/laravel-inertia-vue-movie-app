@@ -23500,7 +23500,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    movies: Array
+    movies: Array,
+    tvShows: Array,
+    episodes: Array
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -26123,7 +26125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "min-h-screen bg-gray-100"
+  "class": "min-h-screen bg-gray-100 dark:bg-gray-900"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_JetBanner = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("JetBanner");
@@ -32388,26 +32390,23 @@ var _hoisted_4 = {
   "class": "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded"
 };
 var _hoisted_5 = {
-  href: ""
-};
-var _hoisted_6 = {
   "class": "aspect-w-2 aspect-h-3"
 };
-var _hoisted_7 = ["src"];
+var _hoisted_6 = ["src"];
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "absolute x-10 left-2 top-2 h-6 w-12 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center rounded"
 }, " New ", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "absolute inset-0 z-10 bg-gradient-to-t from-black to-transparent"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "absolute inset-y-0 left-5 z-10 invisible group-hover:visible flex items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
@@ -32424,13 +32423,110 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_11 = {
+var _hoisted_10 = {
   "class": "absolute flex flex-wrap z-10 bottom-2 left-2 text-indigo-300 text-sm font-bold group-hover:text-blue-700"
 };
-var _hoisted_12 = {
-  href: ""
+var _hoisted_11 = {
+  "class": "dark:text-white font-bold group-hover:text-blue-400"
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
+  "class": "bg-gray-200 dark:bg-gray-900 dark:text-white mt-4 p-2 rounded"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "m-2 p-2 text-2xl font-bold text-indigo-600 dark:text-indigo-300"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Episodes")], -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded"
+};
+var _hoisted_15 = {
+  "class": "aspect-w-2 aspect-h-3"
+};
+var _hoisted_16 = ["src"];
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute x-10 left-2 top-2 h-6 w-12 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center rounded"
+}, " New ", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-0 z-10 bg-gradient-to-t from-black to-transparent"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-y-0 left-5 z-10 invisible group-hover:visible flex items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-12 w-12 text-blue-700 bg-red-700 rounded-full",
+  viewBox: "0 0 20 20",
+  fill: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+  "clip-rule": "evenodd"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute transition opacity-0 duration-500 ease-in-out transform group-hover:opacity-100 group-hover:translate-x-16 group-hover:pr-2 text-white font-bold"
+}, " Play")], -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
+  "class": "dark:text-white font-bold group-hover:text-blue-400"
+};
+var _hoisted_21 = {
+  "class": "bg-gray-200 dark:bg-gray-900 dark:text-white mt-4 p-2 rounded"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "m-2 p-2 text-2xl font-bold text-indigo-600 dark:text-indigo-300"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Tv Shows")], -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded"
+};
+var _hoisted_24 = {
+  "class": "aspect-w-2 aspect-h-3"
+};
+var _hoisted_25 = ["src"];
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute x-10 left-2 top-2 h-6 w-12 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center rounded"
+}, " New ", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-0 z-10 bg-gradient-to-t from-black to-transparent"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-y-0 left-5 z-10 invisible group-hover:visible flex items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-12 w-12 text-blue-700 bg-red-700 rounded-full",
+  viewBox: "0 0 20 20",
+  fill: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+  "clip-rule": "evenodd"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute transition opacity-0 duration-500 ease-in-out transform group-hover:opacity-100 group-hover:translate-x-16 group-hover:pr-2 text-white font-bold"
+}, " Play")], -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
   "class": "dark:text-white font-bold group-hover:text-blue-400"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -32443,25 +32539,47 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: movie.id
         }, {
           image: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-              "class": "object-cover",
-              src: "https://www.themoviedb.org/t/p/w220_and_h330_face/".concat(movie.poster_path)
-            }, null, 8
-            /* PROPS */
-            , _hoisted_7)]), _hoisted_8, _hoisted_9, _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(movie.genres, function (genre) {
-              return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
-                key: genre.id
-              }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(genre.title), 1
-              /* TEXT */
-              );
-            }), 128
-            /* KEYED_FRAGMENT */
-            ))])])];
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/movies/".concat(movie.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                  "class": "object-cover",
+                  src: "https://www.themoviedb.org/t/p/w220_and_h330_face/".concat(movie.poster_path)
+                }, null, 8
+                /* PROPS */
+                , _hoisted_6)]), _hoisted_7, _hoisted_8, _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(movie.genres, function (genre) {
+                  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+                    key: genre.id
+                  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(genre.title), 1
+                  /* TEXT */
+                  );
+                }), 128
+                /* KEYED_FRAGMENT */
+                ))])];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
           }),
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1
-            /* TEXT */
-            )])];
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/movies/".concat(movie.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(movie.title), 1
+                /* TEXT */
+                )];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
           }),
           _: 2
           /* DYNAMIC */
@@ -32471,7 +32589,101 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         );
       }), 128
       /* KEYED_FRAGMENT */
-      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <section class=\"bg-gray-200 dark:bg-gray-900 dark:text-white mt-4 p-2 rounded\">\n                <div class=\"m-2 p-2 text-2xl font-bold text-indigo-600 dark:text-indigo-300\">\n                    <h1>Episodes</h1>\n                </div>\n                <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded\">\n                    @foreach ($episodes as $episode)\n                        <x-movie-card>\n                            <x-slot name=\"image\">\n                                <a href=\"{{ route('episodes.show', $episode->slug) }}\">\n                                    <div class=\"aspect-w-2 aspect-h-3\">\n                                        <img class=\"object-cover\"\n                                            src=\"https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $episode->season->poster_path }}\">\n                                        <div class=\"absolute left-0 top-0 h-8 w-12 bg-gray-800 text-blue-400 text-center\">\n                                            New\n                                        </div>\n                                    </div>\n                                </a>\n                            </x-slot>\n                            <a href=\"{{ route('episodes.show', $episode->slug) }}\">\n\n                                <div class=\"dark:text-white font-bold group-hover:text-blue-400\">\n                                    {{ $episode->name }}\n                                </div>\n                            </a>\n                        </x-movie-card>\n                    @endforeach\n                </div>\n            </section>\n            <section class=\"bg-gray-200 dark:bg-gray-900 dark:text-white mt-4 p-2 rounded\">\n                <div class=\"m-2 p-2 text-2xl font-bold text-indigo-600 dark:text-indigo-300\">\n                    <h1>Series</h1>\n                </div>\n                <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 rounded\">\n                    @foreach ($series as $serie)\n                        <x-movie-card>\n                            <x-slot name=\"image\">\n                                <a href=\"{{ route('series.show', $serie->slug) }}\">\n                                    <div class=\"aspect-w-2 aspect-h-3\">\n                                        <img class=\"object-cover\"\n                                            src=\"https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $serie->poster_path }}\">\n                                    </div>\n                                    <div class=\"absolute inset-0 z-10 bg-gradient-to-t from-black to-transparent\"></div>\n\n                                    <div\n                                        class=\"absolute x-10 left-2 top-2 h-6 w-12 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center rounded\">\n                                        New\n                                    </div>\n                                    <div\n                                        class=\"absolute z-10 bottom-2 left-2 text-indigo-300 text-sm font-bold group-hover:text-blue-700\">\n                                        {{ $serie->seasons_count }} Season/s\n                                    </div>\n                                </a>\n                            </x-slot>\n                            <a href=\"{{ route('series.show', $serie->slug) }}\">\n                                <div class=\"dark:text-white font-bold group-hover:text-blue-400\">\n                                    {{ $serie->name }}\n                                </div>\n                            </a>\n                        </x-movie-card>\n                    @endforeach\n                </div>\n            </section> ")])];
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.episodes, function (episode) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["MovieCard"], {
+          key: episode.id
+        }, {
+          image: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/episodes/".concat(episode.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                  "class": "object-cover",
+                  src: "https://www.themoviedb.org/t/p/w220_and_h330_face/".concat(episode.season.poster_path)
+                }, null, 8
+                /* PROPS */
+                , _hoisted_16)]), _hoisted_17, _hoisted_18, _hoisted_19];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
+          }),
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/movies/".concat(episode.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(episode.name), 1
+                /* TEXT */
+                )];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1024
+        /* DYNAMIC_SLOTS */
+        );
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tvShows, function (tvShow) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["MovieCard"], {
+          key: tvShow.id
+        }, {
+          image: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/tv-shows/".concat(tvShow.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                  "class": "object-cover",
+                  src: "https://www.themoviedb.org/t/p/w220_and_h330_face/".concat(tvShow.poster_path)
+                }, null, 8
+                /* PROPS */
+                , _hoisted_25)]), _hoisted_26, _hoisted_27, _hoisted_28];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
+          }),
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+              href: "/movies/".concat(tvShow.slug)
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tvShow.name), 1
+                /* TEXT */
+                )];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1032
+            /* PROPS, DYNAMIC_SLOTS */
+            , ["href"])];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1024
+        /* DYNAMIC_SLOTS */
+        );
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))])])])];
     }),
     _: 1
     /* STABLE */
