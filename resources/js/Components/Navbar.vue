@@ -41,7 +41,7 @@
                         </svg>
                     </button>
                     <div v-show="open" 
-                        class="absolute z-10 right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-96">
+                        class="absolute z-30 right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-96">
                         <div class="px-2 py-2 bg-white rounded-md shadow dark:bg-gray-800 flex flex-wrap">
                             
                                 <Link 
