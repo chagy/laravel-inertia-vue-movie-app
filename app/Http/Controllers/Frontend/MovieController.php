@@ -18,6 +18,13 @@ class MovieController extends Controller
 
     public function show(Movie $movie)
     {
-
+        $latest = Movie::orderBy('created_at', 'desc')->take(9)->get();
+        return Inertia::render('Frontend/Movies/Show',[
+            'movie'     => $movie, 
+            'latests'   => $latest,
+            'genres'    => $movie->genres,
+            'casts'     => $movie->casts,
+            'tags'      => $movie->tags
+        ]);
     }
 }
