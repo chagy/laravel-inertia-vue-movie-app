@@ -37,7 +37,7 @@ Route::get('/tv-shows/{tv_show:slug}/seasons/{season:slug}', [FrontendTvShowCont
 Route::get('/episodes/{episode:slug}', [FrontendTvShowController::class, 'showEpisode'])->name('episodes.show');
 Route::get( '/casts', [FrontendCastController::class, 'index'])->name('casts.index');
 Route::get('/casts/{cast:slug}', [FrontendCastController::class, 'show'])->name('casts.show');
-Route::get('/genre/{genre:slug}', [FrontendGenreController::class, 'show'])->name('genres.show');
+Route::get('/genres/{genre:slug}', [FrontendGenreController::class, 'show'])->name('genres.show');
 
 
 
