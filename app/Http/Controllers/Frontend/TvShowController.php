@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Inertia\Inertia;
+use App\Models\Movie;
 use App\Models\Season;
 use App\Models\TvShow;
 use App\Models\Episode;
@@ -20,7 +21,12 @@ class TvShowController extends Controller
 
     public function show(TvShow $tvShow)
     {
-
+        $latests = TvShow::orderBy('created_at', 'desc')->take(9)->get();
+        return Inertia::render('Frontend/TvShows/Show',[
+            'tvShow' => $tvShow,
+            'seasons' => $tvShow->seasons,
+            'latests' => $latests
+        ]);
     }
 
     public function seasonShow(TvShow $tvShow,Season $season)
