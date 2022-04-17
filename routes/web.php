@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
 use App\Http\Controllers\Frontend\TvShowController as FrontendTvShowController;
 use App\Http\Controllers\Frontend\CastController as FrontendCastController;
 use App\Http\Controllers\Frontend\GenreController as FrontendGenreController;
+use App\Http\Controllers\Frontend\TagController as FrontendTagController;
 use App\Http\Controllers\Admin\MovieAttachController;
 
 /*
@@ -38,6 +39,7 @@ Route::get('/episodes/{episode:slug}', [FrontendTvShowController::class, 'showEp
 Route::get( '/casts', [FrontendCastController::class, 'index'])->name('casts.index');
 Route::get('/casts/{cast:slug}', [FrontendCastController::class, 'show'])->name('casts.show');
 Route::get('/genres/{genre:slug}', [FrontendGenreController::class, 'show'])->name('genres.show');
+Route::get('/tags/{tag:slug}', [FrontendTagController::class, 'show'])->name('tags.show');
 
 
 

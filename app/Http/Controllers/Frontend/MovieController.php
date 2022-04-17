@@ -22,7 +22,7 @@ class MovieController extends Controller
         return Inertia::render('Frontend/Movies/Show',[
             'movie'     => $movie, 
             'latests'   => $latest,
-            'genres'    => $movie->genres,
+            'movieGenres'    => $movie->genres,
             'casts'     => $movie->casts,
             'tags'      => $movie->tags,
             'trailers'  => $movie->trailers,

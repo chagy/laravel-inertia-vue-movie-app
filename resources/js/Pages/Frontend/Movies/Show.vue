@@ -16,7 +16,7 @@
                                 <div class="flex p-3 text-white space-x-4">
                                     <span>{{ movie.release_date }}</span>
                                     <span class="ml-2 space-x-1">
-                                            <Link v-for="genre in genres" :key="genre.id" class="font-bold hover:text-blue-500"
+                                            <Link v-for="genre in movieGenres" :key="genre.id" class="font-bold hover:text-blue-500"
                                                 :href="`/genres/${genre.slug}`">
                                                 {{ genre.title }},
                                             </Link>
@@ -50,7 +50,7 @@
             <section class="max-w-6xl mx-auto bg-gray-200 dark:bg-gray-900 p-2 rounded">
                 <div class="flex justify-between">
                     <div class="w-7/12">
-                        <h1 class="flex text-white font-bold text-xl">Movie Casts</h1>
+                        <h1 class="flex text-slate-600 dark:text-white font-bold text-xl">Movie Casts</h1>
                         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
                             <MovieCard v-for="cast in casts" :key="cast.id">
                                 <template #image>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="w-4/12">
-                        <h1 class="flex text-white font-bold text-xl">Latest movies</h1>
+                        <h1 class="flex text-slate-600 dark:text-white font-bold text-xl mb-4">Latest movies</h1>
                         <div class="grid grid-cols-3 gap-2" v-if="latests">
                             <Link 
                                 v-for="lm in latests" 
@@ -82,7 +82,11 @@
             <section v-if="movie.tags" class="max-w-6xl mx-auto bg-gradient-to-r from-indigo-700 to-transparent mt-6 p-2">
                 <span 
                     v-for="tag in movie.tags" :key="tag.id"
-                    class="font-bold text-white hover:text-indigo-200 cursor-pointer">#{{ tag.tag_name }}</span>
+                    class="font-bold text-white hover:text-indigo-200 cursor-pointer">
+                    <Link :href="`/tags/${tag.slug}`" class="ml-2">
+                      #{{ tag.tag_name }}
+                    </Link>
+                  </span>
             </section>
         </main>
     </FrontLayout>
@@ -116,7 +120,7 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block w-full max-w- p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="inline-block w-full max-w-6xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
             >
               <DialogTitle
                 as="h3"
@@ -174,7 +178,7 @@ defineProps({
     latests: Array,
     casts: Array,
     tags: Array,
-    genres: Array,
+    movieGenres: Array,
     trailers: Array,
 })
 </script>

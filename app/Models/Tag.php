@@ -13,4 +13,9 @@ class Tag extends Model
         'tag_name',
         'slug'
     ];
+
+    public function movies()
+    {
+        return $this->morphedByMany(Movie::class,'taggable');
+    }
 }
