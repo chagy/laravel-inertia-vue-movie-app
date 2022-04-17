@@ -22,6 +22,7 @@ class TvShowController extends Controller
     public function show(TvShow $tvShow)
     {
         $latests = TvShow::orderBy('created_at', 'desc')->take(9)->get();
+
         return Inertia::render('Frontend/TvShows/Show',[
             'tvShow' => $tvShow,
             'seasons' => $tvShow->seasons,
@@ -31,7 +32,14 @@ class TvShowController extends Controller
 
     public function seasonShow(TvShow $tvShow,Season $season)
     {
-        
+        $latests = TvShow::orderBy('created_at', 'desc')->take(9)->get();
+
+        return Inertia::render('Frontend/TvShows/Seasons/Show',[
+            'tvShow' => $tvShow,
+            'season' => $season,
+            'episodes' => $season->episodes,
+            'latests' => $latests,
+        ]);
     }
 
     public function showEpisode(Episode $episode)
