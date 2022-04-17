@@ -24,7 +24,8 @@ class MovieController extends Controller
             'latests'   => $latest,
             'genres'    => $movie->genres,
             'casts'     => $movie->casts,
-            'tags'      => $movie->tags
+            'tags'      => $movie->tags,
+            'trailers'  => $movie->trailers,
         ]);
     }
 }
